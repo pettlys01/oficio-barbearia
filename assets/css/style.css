@@ -235,6 +235,27 @@ html.lenis, html.lenis body { height: auto; }
 .place { min-height: 78vh; min-height: 78svh; }
 .hero-media { position: absolute; inset: 0; z-index: -2; }
 .hero-media img { width: 100%; height: 100%; object-fit: cover; }
+/* vídeo empilhado em cima da foto, invisível até tocar: enquanto carrega (ou se não carregar) a foto aparece */
+.hero-video {
+  position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;
+  opacity: 0; transition: opacity .8s var(--ease-out);
+}
+.hero-video.is-on { opacity: 1; }
+/* mesmo zoom de entrada da foto, senão a troca foto → vídeo daria um salto de escala */
+.js .rvh .hero-video { transform: scale(1.07); transition: transform 2.4s var(--ease-out), opacity .8s var(--ease-out); }
+.js .rvh.is-in .hero-video { transform: none; }
+/* pausa: discreto no canto, na faixa já escurecida do pé do hero */
+.hero-pause {
+  position: absolute; right: var(--gutter); bottom: 18px; z-index: 1;
+  width: 38px; height: 38px; display: grid; place-items: center; padding: 0;
+  color: #E6DFD6; background: rgba(12, 9, 7, .35); border: 1px solid rgba(244, 242, 237, .28);
+  cursor: pointer; transition: border-color .2s, color .2s;
+}
+.hero-pause:hover { border-color: #A8552A; color: #fff; }
+.hero-pause:focus-visible { outline: 2px solid #F4F2ED; outline-offset: 3px; }
+.hero-pause svg { width: 13px; height: 13px; }
+.hero-pause .i-play, .hero-pause.is-paused .i-pause { display: none; }
+.hero-pause.is-paused .i-play { display: block; }
 .hero::after, .place::after { content: ""; position: absolute; inset: 0; z-index: -1; }
 .hero::after { background: linear-gradient(180deg, rgba(12, 9, 7, .55) 0%, rgba(12, 9, 7, .25) 40%, rgba(12, 9, 7, .9) 100%); }
 .place::after { background: linear-gradient(180deg, rgba(12, 9, 7, .15) 0%, rgba(12, 9, 7, .88) 100%); }

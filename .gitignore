@@ -1,3 +1,7 @@
 # PNGs brutos do ComfyUI: pesados e não usados pelo site (só o .webp convertido é usado).
 # Regeráveis via tools/fotos-salao.mjs, tools/fotos-barbeiros.mjs + tools/converter-*.py.
 assets/img/src/
+
+# gerações brutas do ComfyUI (com áudio), quadros de revisão e página de teste do vídeo do hero.
+# O site usa só assets/video/. Regeráveis via comfy-video.mjs + tools/video-web.py.
+tools/video/

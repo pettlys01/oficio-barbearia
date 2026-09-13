@@ -176,6 +176,65 @@
     });
   }
 
+  /* ---------- Vídeo do hero ---------- */
+  // Loop de ida e volta (a câmera avança e recua, ver tools/video-web.py), mudo.
+  // Celular em pé recebe o recorte 9:16; o resto, o 16:9. A escolha é refeita quando a tela muda
+  // de formato (girar o aparelho, DevTools), senão o recorte vertical ficava esticado no desktop.
+  const heroVideo = document.querySelector('.hero-video');
+  const heroPause = document.querySelector('.hero-pause');
+  if (heroVideo) {
+    const saveData = navigator.connection && navigator.connection.saveData;
+    if (reduceMotion || saveData) {
+      heroVideo.remove();
+      if (heroPause) heroPause.remove();
+    } else {
+      const retrato = window.matchMedia('(orientation: portrait) and (max-width: 700px)');
+      let pausadoPeloUsuario = false;
+      let heroVisivel = true;
+
+      const sync = () => {
+        if (pausadoPeloUsuario || !heroVisivel || document.hidden) heroVideo.pause();
+        else heroVideo.play().catch(() => {});
+      };
+      const carregar = () => {
+        const arquivo = `assets/video/${retrato.matches ? 'hero-retrato' : 'hero-1344'}.mp4`;
+        if (heroVideo.getAttribute('src') === arquivo) return;
+        // as duas versões têm a mesma linha do tempo: continua do mesmo ponto na troca
+        const t = heroVideo.currentTime;
+        heroVideo.src = arquivo;
+        if (t) heroVideo.addEventListener('loadedmetadata', () => { heroVideo.currentTime = t; }, { once: true });
+        sync();
+      };
+
+      heroVideo.addEventListener('playing', () => heroVideo.classList.add('is-on'));
+      // loop feito aqui e não com o atributo loop: no WebKit o loop nativo volta pro zero e fica
+      // pausado. Como o clipe é ida e volta, o quadro final e o inicial quase coincidem (sem emenda).
+      heroVideo.addEventListener('ended', () => { heroVideo.currentTime = 0; sync(); });
+      retrato.addEventListener('change', carregar);
+      document.addEventListener('visibilitychange', sync);
+
+      // hero fora da tela: pausa (bateria/CPU), volta ao reaparecer
+      if ('IntersectionObserver' in window) {
+        new IntersectionObserver(([e]) => { heroVisivel = e.isIntersecting; sync(); })
+          .observe(heroVideo.closest('.hero'));
+      }
+
+      if (heroPause) {
+        heroPause.hidden = false;
+        heroPause.addEventListener('click', () => {
+          pausadoPeloUsuario = !pausadoPeloUsuario;
+          heroPause.classList.toggle('is-paused', pausadoPeloUsuario);
+          heroPause.setAttribute('aria-label', pausadoPeloUsuario ? 'Tocar vídeo de fundo' : 'Pausar vídeo de fundo');
+          sync();
+        });
+      }
+
+      // só depois do load: o vídeo não disputa banda com a foto, que é o LCP
+      if (document.readyState === 'complete') carregar();
+      else window.addEventListener('load', carregar, { once: true });
+    }
+  }
+
   /* ---------- Ano no rodapé ---------- */
   const year = document.querySelector('[data-year]');
   if (year) year.textContent = new Date().getFullYear();

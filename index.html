@@ -22,7 +22,7 @@
   <link rel="preload" href="assets/fonts/montserrat-400.woff2" as="font" type="font/woff2" crossorigin>
 
   <link rel="preload" as="image" href="assets/img/hero-interior-1344.webp" imagesrcset="assets/img/hero-interior-800.webp 800w, assets/img/hero-interior-1344.webp 1344w" imagesizes="100vw" fetchpriority="high">
-  <link rel="stylesheet" href="assets/css/style.css?v=7">
+  <link rel="stylesheet" href="assets/css/style.css?v=8">
 
   <!-- marca que o JS está ativo: sem JS nada fica escondido esperando animação -->
   <script>document.documentElement.classList.add('js');</script>
@@ -69,6 +69,9 @@
     <section class="hero rvh" id="topo">
       <div class="hero-media">
         <img class="hero-img" src="assets/img/hero-interior-1344.webp" srcset="assets/img/hero-interior-800.webp 800w, assets/img/hero-interior-1344.webp 1344w" sizes="100vw" width="1344" height="768" alt="Salão da OFÍCIO com paredes de tijolo e cadeiras de barbeiro" fetchpriority="high">
+        <!-- vídeo em loop por cima da foto: o JS só dá o src depois do load (a foto segue sendo o LCP)
+             e ele só aparece quando começa a tocar. Sem JS, com menos movimento ou economia de dados, fica a foto. -->
+        <video class="hero-video" muted playsinline preload="none" aria-hidden="true" tabindex="-1"></video>
       </div>
       <div class="wrap hero-inner">
         <h1 class="h h-xl rvl" style="--d:.15s;">
@@ -96,6 +99,11 @@
         </div>
         </dl>
       </div>
+      <!-- movimento em loop passa de 5s: WCAG 2.2.2 pede um jeito de pausar -->
+      <button class="hero-pause" type="button" aria-label="Pausar vídeo de fundo" hidden>
+        <svg class="i-pause" viewBox="0 0 14 14" aria-hidden="true"><path d="M3 1.5h2.6v11H3zM8.4 1.5H11v11H8.4z" fill="currentColor"/></svg>
+        <svg class="i-play" viewBox="0 0 14 14" aria-hidden="true"><path d="M3.5 1.5l9 5.5-9 5.5z" fill="currentColor"/></svg>
+      </button>
     </section>
 
     <!-- A CASA: duas cópias impressas sobrepostas -->
@@ -392,6 +400,6 @@
   </footer>
 
   <script src="assets/js/vendor/lenis.min.js" defer></script>
-  <script src="assets/js/main.js?v=4" defer></script>
+  <script src="assets/js/main.js?v=5" defer></script>
 </body>
 </html>

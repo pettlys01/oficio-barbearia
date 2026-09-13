@@ -1,0 +1,7 @@
+For the target video, at 0.00 seconds into the target video, <Picture 1> (from [Shot 1]) is fully referenced.
+
+integrated_multimodal_description: Photorealistic, calm cinematic interior footage of an empty neighborhood barbershop in the morning before opening, warm tungsten light mixed with soft overcast daylight. [Shot 1] The shot opens exactly on <Picture 1>: a red exposed-brick wall with three dark-framed mirrors above a light wooden shelf holding a few amber bottles, three vintage barber chairs with worn brown leather seats and chrome bases standing in a row on a dark wooden plank floor, brass pendant lamps and bare-bulb wall sconces glowing, a large window on the right letting in soft even daylight. The room stays empty, quiet and clear. The warm bulbs glow steadily, the soft reflections on the chrome chair bases and the brass lamp shades shift gently as the camera moves, and the lighting of the room stays the same from start to end. The chairs, mirrors, lamps, bottles and shelf keep their exact shapes, positions and colors for the whole shot. Camera: Push In with small amplitude at slow speed. No people enter the frame, no hands, no new objects, no text or signage, no smoke, no steam, no haze, no sunbeams, no cuts, no dissolves, no camera shake, no style drift.
+
+overall_soundscape: Quiet room tone of an empty shop, faint muffled street traffic behind the window glass.
+
+non_diegetic_music: N/A
