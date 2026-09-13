@@ -22,7 +22,7 @@
   <link rel="preload" href="assets/fonts/montserrat-400.woff2" as="font" type="font/woff2" crossorigin>
 
   <link rel="preload" as="image" href="assets/img/hero-interior-1344.webp" imagesrcset="assets/img/hero-interior-800.webp 800w, assets/img/hero-interior-1344.webp 1344w" imagesizes="100vw" fetchpriority="high">
-  <link rel="stylesheet" href="assets/css/style.css?v=5">
+  <link rel="stylesheet" href="assets/css/style.css?v=6">
 
   <!-- marca que o JS está ativo: sem JS nada fica escondido esperando animação -->
   <script>document.documentElement.classList.add('js');</script>
@@ -227,7 +227,7 @@
 
         <!-- um depoimento só, preso a quem atendeu (depoimento de exemplo: é peça de conceito) -->
         <figure class="quote">
-          <blockquote class="h">“Troquei de barbearia de rede pra cá. O Wagner lembra até do jeito que eu gosto da barba.”</blockquote>
+          <blockquote class="h">Troquei de barbearia de rede pra cá. O Wagner lembra até do jeito que eu gosto da barba.</blockquote>
           <figcaption>Marcelo, cliente do Wagner desde 2022</figcaption>
         </figure>
       </div>
@@ -302,11 +302,11 @@
         <form class="booking-form" id="agendar-form" data-whats="5500000000000" novalidate>
           <div class="form-row">
             <div class="field">
-              <label for="f-nome">Seu nome</label>
+              <label for="f-nome"><span class="field-n">01</span>Seu nome</label>
               <input id="f-nome" name="nome" type="text" autocomplete="given-name" placeholder="Como te chamamos?">
             </div>
             <div class="field">
-              <label for="f-barbeiro">Com quem</label>
+              <label for="f-barbeiro"><span class="field-n">02</span>Com quem</label>
               <select id="f-barbeiro" name="barbeiro">
                 <option value="">Tanto faz, quem estiver livre</option>
                 <option>Wagner</option>
@@ -317,7 +317,7 @@
             </div>
           </div>
           <div class="field">
-            <label for="f-servico">O que você quer fazer</label>
+            <label for="f-servico"><span class="field-n">03</span>O que você quer fazer</label>
             <select id="f-servico" name="servico">
               <option>Corte</option>
               <option>Barba na navalha</option>
@@ -328,7 +328,7 @@
             </select>
           </div>
           <div class="field">
-            <label for="f-quando">Quando fica bom pra você</label>
+            <label for="f-quando"><span class="field-n">04</span>Quando fica bom pra você</label>
             <select id="f-quando" name="quando">
               <option>Hoje, se tiver vaga</option>
               <option>Amanhã</option>
