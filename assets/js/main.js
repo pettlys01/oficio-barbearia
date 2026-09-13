@@ -86,6 +86,71 @@
     revealables.forEach((el) => el.classList.add('is-in'));
   }
 
+  /* ---------- Barbeiros: pilha de cartões navegável ---------- */
+  const stack = document.querySelector('.barber-stack');
+  if (stack) {
+    const cards = Array.from(stack.querySelectorAll('.barber'));
+    const total = cards.length;
+    const counter = document.querySelector('.barber-count [data-current]');
+    let active = 0;
+
+    const render = () => {
+      cards.forEach((card, i) => {
+        const offset = (i - active + total) % total;
+        card.classList.remove('is-active', 'is-prev', 'is-next', 'is-hidden');
+        card.removeAttribute('tabindex');
+        card.removeAttribute('role');
+        card.removeAttribute('aria-label');
+        if (offset === 0) {
+          card.classList.add('is-active');
+        } else if (offset === 1) {
+          card.classList.add('is-next');
+        } else if (offset === total - 1) {
+          card.classList.add('is-prev');
+        } else {
+          card.classList.add('is-hidden');
+        }
+        if (offset === 1 || offset === total - 1) {
+          card.tabIndex = 0;
+          card.setAttribute('role', 'button');
+          const nome = card.querySelector('h3');
+          card.setAttribute('aria-label', `Mostrar ${nome ? nome.textContent : 'este barbeiro'}`);
+        }
+      });
+      if (counter) counter.textContent = String(active + 1).padStart(2, '0');
+    };
+
+    const go = (dir) => { active = (active + dir + total) % total; render(); };
+
+    stack.parentElement.querySelectorAll('.barber-arrow').forEach((btn) => {
+      btn.addEventListener('click', () => go(btn.dataset.dir === 'next' ? 1 : -1));
+    });
+
+    cards.forEach((card, i) => {
+      card.addEventListener('click', () => {
+        if (card.classList.contains('is-prev') || card.classList.contains('is-next')) { active = i; render(); }
+      });
+      card.addEventListener('keydown', (e) => {
+        if ((e.key === 'Enter' || e.key === ' ') && (card.classList.contains('is-prev') || card.classList.contains('is-next'))) {
+          e.preventDefault();
+          active = i;
+          render();
+        }
+      });
+    });
+
+    let touchX = null;
+    stack.addEventListener('touchstart', (e) => { touchX = e.touches[0].clientX; }, { passive: true });
+    stack.addEventListener('touchend', (e) => {
+      if (touchX === null) return;
+      const dx = e.changedTouches[0].clientX - touchX;
+      if (Math.abs(dx) > 40) go(dx < 0 ? 1 : -1);
+      touchX = null;
+    }, { passive: true });
+
+    render();
+  }
+
   /* ---------- Agendamento: monta a mensagem e abre o WhatsApp ---------- */
   const form = document.getElementById('agendar-form');
   if (form) {

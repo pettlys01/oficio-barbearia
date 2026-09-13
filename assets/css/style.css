@@ -225,7 +225,13 @@ html.lenis, html.lenis body { height: auto; }
   position: relative; display: flex; align-items: flex-end;
   overflow: hidden; color: var(--paper); isolation: isolate;
 }
-.hero { min-height: 100vh; min-height: 100svh; }
+/* coluna + margin-top:auto em vez de só align-items:flex-end: o padding-top
+   reserva a faixa do header fixo (que não empurra layout por ser position:fixed)
+   como zona inviolável, então em tela curta o texto nunca sobe por baixo do
+   header — só perde parte do respiro de baixo. A foto de fundo (position:absolute)
+   ignora esse padding normalmente. */
+.hero { min-height: 100vh; min-height: 100svh; flex-direction: column; padding-top: calc(var(--header-h) + 24px); }
+.hero > .hero-inner { margin-top: auto; }
 .place { min-height: 78vh; min-height: 78svh; }
 .hero-media { position: absolute; inset: 0; z-index: -2; }
 .hero-media img { width: 100%; height: 100%; object-fit: cover; }
@@ -274,12 +280,11 @@ html.lenis, html.lenis body { height: auto; }
 
 .film-sec { background: var(--ink); color: var(--paper); padding: clamp(56px, 7vw, 96px) 0; overflow: hidden; }
 .film-head {
-  display: flex; justify-content: space-between; align-items: flex-end; gap: 24px; flex-wrap: wrap;
   max-width: calc(1200px + 2 * var(--gutter));
   padding: 0 var(--gutter); margin-bottom: 36px;
 }
 /* a seção é escura mas não usa .dark: sem isso o subtítulo ficava em ~3,1:1 */
-.film-head .lede { max-width: 36ch; color: var(--muted-dark); }
+.film-head .lede { max-width: 46ch; color: var(--muted-dark); }
 .film { overflow: hidden; }
 /* dois conjuntos idênticos de quadros; cada quadro carrega os próprios furos,
    então -50% emenda o loop sem salto */
@@ -320,6 +325,50 @@ html.lenis, html.lenis body { height: auto; }
 .barber h3 { font-size: 24px; margin-top: 18px; }
 .barber-role { margin-top: 6px; font-size: 14.5px; font-weight: 500; }
 .barber-bio { margin-top: 6px; font-size: 14.5px; line-height: 1.6; color: var(--muted); }
+
+/* aqui (e só aqui) o subtítulo desce pra baixo do título em vez de ficar do
+   lado: ao lado, sobre a pilha estreita e centralizada, sobrava vazio dos
+   dois lados. Serviços mantém o .sec-head padrão (lado a lado), que ali
+   funciona porque a régua embaixo ocupa a largura toda. */
+#barbeiros .sec-head { display: block; }
+#barbeiros .sec-head .lede { max-width: 46ch; }
+
+/* pilha navegável: sem .js isto não existe, o grid4 acima é o layout inteiro.
+   Com JS o mesmo .barber (foto+nome+bio junto) vira um cartão empilhável;
+   plano, sem rotação 3D, pra combinar com o resto do site (nada aqui gira). */
+/* card-w numa custom property: largura e distância dos vizinhos escalam
+   juntas em vez de dois números fixos que só combinam num viewport */
+.js .barber-stack { position: relative; --card-w: clamp(300px, 27vw, 440px); height: clamp(560px, 46vw, 720px); }
+.js .barber-stack .barber {
+  position: absolute; top: 0; left: 50%; width: var(--card-w);
+  transform: translateX(-50%); transition: transform .6s var(--ease-out), opacity .5s ease;
+}
+.js .barber-stack .barber.is-active { transform: translateX(-50%); opacity: 1; z-index: 3; }
+.js .barber-stack .barber.is-prev,
+.js .barber-stack .barber.is-next { opacity: .5; z-index: 2; cursor: pointer; transition: transform .6s var(--ease-out), opacity .3s ease; }
+.js .barber-stack .barber.is-prev:hover,
+.js .barber-stack .barber.is-next:hover { opacity: .8; }
+.js .barber-stack .barber.is-prev { transform: translateX(calc(-50% - .58 * var(--card-w))) scale(.88); }
+.js .barber-stack .barber.is-next { transform: translateX(calc(-50% + .58 * var(--card-w))) scale(.88); }
+.js .barber-stack .barber.is-hidden { opacity: 0; pointer-events: none; z-index: 1; transition: opacity .3s ease; }
+/* o scale() encolhe a foto do vizinho, mas o texto continuaria fluindo na
+   altura de um cartão em tamanho normal e vazando por cima do ativo — só a
+   foto espia, nome/função/bio só aparecem do cartão ativo (igual a referência) */
+.js .barber-stack .barber:not(.is-active) h3,
+.js .barber-stack .barber:not(.is-active) .barber-role,
+.js .barber-stack .barber:not(.is-active) .barber-bio { display: none; }
+
+.barber-nav { display: none; }
+.js .barber-nav { display: flex; align-items: center; justify-content: center; gap: 22px; margin-top: 40px; }
+.barber-arrow {
+  width: 46px; height: 46px; display: flex; align-items: center; justify-content: center;
+  background: none; border: 1px solid var(--line); color: var(--ink); cursor: pointer;
+  transition: background-color .2s ease, color .2s ease, border-color .2s ease;
+}
+.barber-arrow:hover { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+.barber-arrow svg { width: 17px; height: 17px; }
+.barber-count { min-width: 64px; text-align: center; font-size: 13.5px; color: var(--muted); font-variant-numeric: tabular-nums; letter-spacing: .02em; }
+.barber-count span { color: var(--ink); font-weight: 600; }
 
 /* depoimento único, alinhado com a segunda coluna de barbeiros */
 .quote { margin: clamp(64px, 8vw, 112px) 0 0 25%; max-width: 760px; }
@@ -465,6 +514,10 @@ html.lenis, html.lenis body { height: auto; }
   .facts > div:last-child { grid-column: 1 / -1; }
   .prints { max-width: 520px; }
   .h-xl { font-size: 62px; }
+  /* tela estreita não sobra espaço pra espiar os vizinhos: só o ativo, navega por seta/arrasto */
+  .js .barber-stack { height: clamp(480px, 92vw, 560px); }
+  .js .barber-stack .barber.is-prev,
+  .js .barber-stack .barber.is-next { opacity: 0; pointer-events: none; }
 }
 
 @media (max-width: 560px) {
@@ -486,4 +539,7 @@ html.lenis, html.lenis body { height: auto; }
   .film-track { animation: none; }
   .film { overflow-x: auto; }
   .faq details[open] .ans { animation: none; }
+  /* aqui o transform é posição (ativo/vizinho), não efeito só de entrada —
+     zerar quebraria a pilha inteira pro mesmo lugar. Só tira a transição. */
+  .js .barber-stack .barber { transition: none !important; }
 }

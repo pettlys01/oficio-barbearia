@@ -22,7 +22,7 @@
   <link rel="preload" href="assets/fonts/montserrat-400.woff2" as="font" type="font/woff2" crossorigin>
 
   <link rel="preload" as="image" href="assets/img/hero-interior-1344.webp" imagesrcset="assets/img/hero-interior-800.webp 800w, assets/img/hero-interior-1344.webp 1344w" imagesizes="100vw" fetchpriority="high">
-  <link rel="stylesheet" href="assets/css/style.css?v=3">
+  <link rel="stylesheet" href="assets/css/style.css?v=5">
 
   <!-- marca que o JS está ativo: sem JS nada fica escondido esperando animação -->
   <script>document.documentElement.classList.add('js');</script>
@@ -183,31 +183,46 @@
           <h2 class="h h-lg rvl"><span class="ln"><span>Quem vai te atender</span></span></h2>
           <p class="lede">Você escolhe com quem marca. Na próxima vez é o mesmo, a não ser que você queira trocar.</p>
         </div>
-        <div class="grid4">
-          <article class="barber">
+        <!-- sem JS isto é só um grid4 normal (fallback abaixo, .barber em fluxo).
+             Com JS, os 4 cartões viram uma pilha navegável: só um "solto" nos
+             extremos porque com 4 pessoas cabe tudo à vista sem carrossel de
+             verdade — aqui é só uma forma mais viva de mostrar cada um. -->
+        <div class="grid4 barber-stack">
+          <article class="barber is-active">
             <figure class="rvi"><img src="assets/img/barbeiro-1-720.webp?v=3" srcset="assets/img/barbeiro-1-480.webp?v=3 480w, assets/img/barbeiro-1-720.webp?v=3 720w" sizes="(max-width: 560px) 92vw, (max-width: 940px) 46vw, 290px" width="720" height="926" alt="Wagner, barbeiro, diante da parede de tijolo" loading="lazy" decoding="async"></figure>
-            <h3 class="h" style="--d:.3s;">Wagner</h3>
+            <h3 class="h">Wagner</h3>
             <p class="barber-role">Navalha e barba, há 14 anos</p>
             <p class="barber-bio">Aprendeu com o pai, numa barbearia de bairro que não existe mais.</p>
           </article>
           <article class="barber">
             <figure class="rvi" style="--d:.1s;"><img src="assets/img/barbeiro-2-720.webp?v=3" srcset="assets/img/barbeiro-2-480.webp?v=3 480w, assets/img/barbeiro-2-720.webp?v=3 720w" sizes="(max-width: 560px) 92vw, (max-width: 940px) 46vw, 290px" width="720" height="926" alt="Diego, barbeiro, diante da parede de tijolo" loading="lazy" decoding="async"></figure>
-            <h3 class="h" style="--d:.4s;">Diego</h3>
+            <h3 class="h">Diego</h3>
             <p class="barber-role">Corte clássico e degradê, há 9 anos</p>
             <p class="barber-bio">É quem os outros barbeiros chamam quando têm dúvida no próprio corte.</p>
           </article>
           <article class="barber">
             <figure class="rvi" style="--d:.2s;"><img src="assets/img/barbeiro-3-720.webp?v=3" srcset="assets/img/barbeiro-3-480.webp?v=3 480w, assets/img/barbeiro-3-720.webp?v=3 720w" sizes="(max-width: 560px) 92vw, (max-width: 940px) 46vw, 290px" width="720" height="926" alt="Thiago, barbeiro, diante da parede de tijolo" loading="lazy" decoding="async"></figure>
-            <h3 class="h" style="--d:.5s;">Thiago</h3>
+            <h3 class="h">Thiago</h3>
             <p class="barber-role">Tratamento capilar, há 6 anos</p>
             <p class="barber-bio">Cuida de couro cabeludo, coisa que quase nenhuma barbearia de bairro oferece.</p>
           </article>
           <article class="barber">
             <figure class="rvi" style="--d:.3s;"><img src="assets/img/barbeiro-4-720.webp?v=3" srcset="assets/img/barbeiro-4-480.webp?v=3 480w, assets/img/barbeiro-4-720.webp?v=3 720w" sizes="(max-width: 560px) 92vw, (max-width: 940px) 46vw, 290px" width="720" height="926" alt="Marcos, barbeiro, diante da parede de tijolo" loading="lazy" decoding="async"></figure>
-            <h3 class="h" style="--d:.6s;">Marcos</h3>
+            <h3 class="h">Marcos</h3>
             <p class="barber-role">Tesoura e cabelo comprido, há 11 anos</p>
             <p class="barber-bio">Veio de um salão da Liberdade. Pega os cortes longos que os outros preferem não pegar.</p>
           </article>
+        </div>
+
+        <!-- só existe com JS (CSS esconde sem .js): setas + contador da pilha acima -->
+        <div class="barber-nav">
+          <button class="barber-arrow" type="button" data-dir="prev" aria-label="Barbeiro anterior">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M15 5l-7 7 7 7"/></svg>
+          </button>
+          <span class="barber-count"><span data-current>01</span> / 04</span>
+          <button class="barber-arrow" type="button" data-dir="next" aria-label="Próximo barbeiro">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 5l7 7-7 7"/></svg>
+          </button>
         </div>
 
         <!-- um depoimento só, preso a quem atendeu (depoimento de exemplo: é peça de conceito) -->
@@ -377,6 +392,6 @@
   </footer>
 
   <script src="assets/js/vendor/lenis.min.js" defer></script>
-  <script src="assets/js/main.js?v=3" defer></script>
+  <script src="assets/js/main.js?v=4" defer></script>
 </body>
 </html>
