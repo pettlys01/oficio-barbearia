@@ -524,7 +524,9 @@ html.lenis, html.lenis body { height: auto; }
   .prints { max-width: 520px; }
   .h-xl { font-size: 62px; }
   /* tela estreita não sobra espaço pra espiar os vizinhos: só o ativo, navega por seta/arrasto */
-  .js .barber-stack { height: clamp(480px, 92vw, 560px); }
+  /* overflow:hidden: o vizinho fica invisível mas continua deslocado pra fora
+     da tela, e isso abria rolagem lateral no celular */
+  .js .barber-stack { height: clamp(480px, 92vw, 560px); overflow: hidden; }
   .js .barber-stack .barber.is-prev,
   .js .barber-stack .barber.is-next { opacity: 0; pointer-events: none; }
 }
