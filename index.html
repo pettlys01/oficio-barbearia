@@ -1,0 +1,382 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>OFÍCIO Barbearia · Pinheiros, São Paulo</title>
+  <meta name="description" content="Barbearia de bairro em Pinheiros com quatro cadeiras e quatro barbeiros fixos. Corte, barba na navalha e tratamento capilar, só com hora marcada.">
+  <meta name="theme-color" content="#14100D">
+
+  <!-- Open Graph: trocar og:url e og:image por URLs absolutas quando o domínio estiver definido -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="OFÍCIO Barbearia · Pinheiros">
+  <meta property="og:description" content="Quatro cadeiras. Nenhuma pressa. Corte e barba feitos por quem trata isso como ofício.">
+  <meta property="og:image" content="assets/img/og-oficio.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+
+  <!-- fontes hospedadas no próprio site, um arquivo estático por peso: a versão
+       variável do Google Fonts perdia o peso no WebKit (títulos saíam finos) -->
+  <link rel="preload" href="assets/fonts/montserrat-800.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/montserrat-400.woff2" as="font" type="font/woff2" crossorigin>
+
+  <link rel="preload" as="image" href="assets/img/hero-interior-1344.webp" imagesrcset="assets/img/hero-interior-800.webp 800w, assets/img/hero-interior-1344.webp 1344w" imagesizes="100vw" fetchpriority="high">
+  <link rel="stylesheet" href="assets/css/style.css?v=3">
+
+  <!-- marca que o JS está ativo: sem JS nada fica escondido esperando animação -->
+  <script>document.documentElement.classList.add('js');</script>
+</head>
+<body>
+
+  <a class="skip" href="#conteudo">Pular para o conteúdo</a>
+
+  <header class="site-header">
+    <a href="#topo" class="wordmark" aria-label="OFÍCIO Barbearia, início">OFÍCIO</a>
+    <nav class="nav" aria-label="Principal">
+      <a href="#a-casa">A casa</a>
+      <a href="#servicos">Serviços</a>
+      <a href="#barbeiros">Barbeiros</a>
+      <a href="#produtos">Produtos</a>
+      <a href="#duvidas">Dúvidas</a>
+      <a href="#onde">Onde estamos</a>
+    </nav>
+    <div class="header-end">
+      <a class="btn header-cta" href="#agendar">Agendar</a>
+      <button class="burger" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu"><span></span></button>
+    </div>
+  </header>
+
+  <div class="menu" id="menu" hidden>
+    <div class="menu-top">
+      <span class="wordmark">OFÍCIO</span>
+      <button class="menu-close" type="button" aria-label="Fechar menu">×</button>
+    </div>
+    <nav aria-label="Menu">
+      <a href="#a-casa">A casa</a>
+      <a href="#servicos">Serviços</a>
+      <a href="#barbeiros">Barbeiros</a>
+      <a href="#produtos">Produtos</a>
+      <a href="#duvidas">Dúvidas</a>
+      <a href="#onde">Onde estamos</a>
+    </nav>
+    <a class="btn btn-light menu-cta" href="#agendar">Agendar um horário</a>
+  </div>
+
+  <main id="conteudo">
+
+    <!-- HERO -->
+    <section class="hero rvh" id="topo">
+      <div class="hero-media">
+        <img class="hero-img" src="assets/img/hero-interior-1344.webp" srcset="assets/img/hero-interior-800.webp 800w, assets/img/hero-interior-1344.webp 1344w" sizes="100vw" width="1344" height="768" alt="Salão da OFÍCIO com paredes de tijolo e cadeiras de barbeiro" fetchpriority="high">
+      </div>
+      <div class="wrap hero-inner">
+        <h1 class="h h-xl rvl" style="--d:.15s;">
+          <span class="ln"><span>Quatro cadeiras.</span></span>
+          <span class="ln" style="--i:1;"><span>Nenhuma pressa.</span></span>
+        </h1>
+        <p class="lede">Corte e barba em Pinheiros, feitos por quem trata isso como ofício, não como fila. Você marca com o seu barbeiro e ele te espera.</p>
+        <div class="actions">
+          <a class="btn btn-light" href="#agendar">Agendar um horário</a>
+          <a class="tlink" href="#servicos">Ver serviços</a>
+        </div>
+        <!-- informação prática: no pé do hero, sobre a parte já escurecida da foto -->
+        <dl class="facts">
+        <div>
+          <dt>Horário</dt>
+          <dd>Segunda a sexta, 10h às 20h<br>Sábado, 9h às 17h</dd>
+        </div>
+        <div>
+          <dt>Endereço</dt>
+          <dd>R. Fradique Coutinho, 000<br>Pinheiros, São Paulo</dd>
+        </div>
+        <div>
+          <dt>Só com hora marcada</dt>
+          <dd>Pelo WhatsApp ou no<br>(11) 0000-0000</dd>
+        </div>
+        </dl>
+      </div>
+    </section>
+
+    <!-- A CASA: duas cópias impressas sobrepostas -->
+    <section class="sec" id="a-casa">
+      <div class="wrap split">
+        <div>
+          <div class="prints rvp">
+            <figure class="print print--main">
+              <img src="assets/img/cadeira-896.webp" srcset="assets/img/cadeira-600.webp 600w, assets/img/cadeira-896.webp 896w" sizes="(max-width: 940px) 80vw, 480px" width="896" height="1152" alt="Cadeira de barbeiro em couro gasto diante da parede de tijolo" loading="lazy" decoding="async">
+            </figure>
+            <figure class="print print--detail">
+              <img src="assets/img/film/g02-ferramentas-900.webp?v=3" width="900" height="616" alt="Máquina, pente e tesoura alinhados sobre couro" loading="lazy" decoding="async">
+            </figure>
+          </div>
+          <p class="prints-cap">A cadeira do Wagner e as ferramentas dele. Nenhuma é da casa.</p>
+        </div>
+        <div>
+          <h2 class="h h-lg rvl">
+            <span class="ln"><span>Barbeiro é ofício,</span></span>
+            <span class="ln" style="--i:1;"><span>não linha de produção.</span></span>
+          </h2>
+          <p class="lede">A OFÍCIO é pequena porque escolhemos ser. São quatro cadeiras, um barbeiro fixo em cada uma e uma regra: o corte leva o tempo que precisa levar.</p>
+          <p class="lede">Cada barbeiro daqui trabalha com as próprias ferramentas. Não é kit da casa, é instrumento de quem aprendeu a profissão e continua afiando ela todo dia.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- O SALÃO: tira de filme rolando devagar -->
+    <section class="film-sec" aria-labelledby="salao-titulo">
+      <div class="wrap film-head">
+        <h2 class="h h-md rvl" id="salao-titulo"><span class="ln"><span>Um dia no salão</span></span></h2>
+        <p class="lede">Da primeira luz da manhã à vassoura no fim do dia.</p>
+      </div>
+      <div class="film">
+        <div class="film-track">
+          <figure class="frame"><img src="assets/img/film/g10-salao-manha-900.webp?v=3" width="900" height="616" alt="Cadeiras enfileiradas diante da parede de tijolo, na luz da manhã, antes de abrir" loading="lazy" decoding="async"></figure>
+          <figure class="frame"><img src="assets/img/film/g03-capa-900.webp?v=3" width="900" height="616" alt="Pentes de molho num pote de vidro com desinfetante azul" loading="lazy" decoding="async"></figure>
+          <figure class="frame"><img src="assets/img/film/g01-toalha-900.webp?v=3" width="900" height="616" alt="Toalhas brancas dobradas no balcão de madeira" loading="lazy" decoding="async"></figure>
+          <figure class="frame"><img src="assets/img/film/g09-assentador-900.webp?v=3" width="900" height="616" alt="Assentador de couro pendurado na parede, com pincel e caneca de barbear na prateleira" loading="lazy" decoding="async"></figure>
+          <figure class="frame"><img src="assets/img/film/g04-lavatorio-900.webp?v=3" width="900" height="616" alt="Lavatório de cerâmica preta com torneira de latão" loading="lazy" decoding="async"></figure>
+          <figure class="frame"><img src="assets/img/film/g06-couro-luz-900.webp?v=3" width="900" height="616" alt="Luz de fim de tarde no encosto de couro" loading="lazy" decoding="async"></figure>
+          <figure class="frame"><img src="assets/img/film/g05-avental-900.webp?v=3" width="900" height="616" alt="Avental e chapéu pendurados no gancho de latão" loading="lazy" decoding="async"></figure>
+          <figure class="frame"><img src="assets/img/film/g07-poste-900.webp?v=3" width="900" height="616" alt="Barber pole aceso na fachada ao anoitecer" loading="lazy" decoding="async"></figure>
+          <figure class="frame"><img src="assets/img/film/g08-chao-900.webp?v=3" width="900" height="616" alt="Vassoura encostada na base da cadeira, com cabelo cortado no piso de madeira" loading="lazy" decoding="async"></figure>
+          <!-- segunda cópia: só pra emendar o loop sem salto; escondida de leitor de tela -->
+          <figure class="frame" aria-hidden="true"><img src="assets/img/film/g10-salao-manha-900.webp?v=3" width="900" height="616" alt="" loading="lazy" decoding="async"></figure>
+          <figure class="frame" aria-hidden="true"><img src="assets/img/film/g03-capa-900.webp?v=3" width="900" height="616" alt="" loading="lazy" decoding="async"></figure>
+          <figure class="frame" aria-hidden="true"><img src="assets/img/film/g01-toalha-900.webp?v=3" width="900" height="616" alt="" loading="lazy" decoding="async"></figure>
+          <figure class="frame" aria-hidden="true"><img src="assets/img/film/g09-assentador-900.webp?v=3" width="900" height="616" alt="" loading="lazy" decoding="async"></figure>
+          <figure class="frame" aria-hidden="true"><img src="assets/img/film/g04-lavatorio-900.webp?v=3" width="900" height="616" alt="" loading="lazy" decoding="async"></figure>
+          <figure class="frame" aria-hidden="true"><img src="assets/img/film/g06-couro-luz-900.webp?v=3" width="900" height="616" alt="" loading="lazy" decoding="async"></figure>
+          <figure class="frame" aria-hidden="true"><img src="assets/img/film/g05-avental-900.webp?v=3" width="900" height="616" alt="" loading="lazy" decoding="async"></figure>
+          <figure class="frame" aria-hidden="true"><img src="assets/img/film/g07-poste-900.webp?v=3" width="900" height="616" alt="" loading="lazy" decoding="async"></figure>
+          <figure class="frame" aria-hidden="true"><img src="assets/img/film/g08-chao-900.webp?v=3" width="900" height="616" alt="" loading="lazy" decoding="async"></figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVIÇOS: o comprimento de cada barra é o tempo reservado (90 min = linha inteira) -->
+    <section class="sec dark" id="servicos">
+      <div class="wrap">
+        <div class="sec-head">
+          <h2 class="h h-lg rvl">
+            <span class="ln"><span>O que sai</span></span>
+            <span class="ln" style="--i:1;"><span>da cadeira.</span></span>
+          </h2>
+          <p class="lede">Cada barra mostra o tempo que a gente reserva pro serviço. Valores a gente passa na hora de marcar.</p>
+        </div>
+        <ol class="scale rvs">
+          <li style="--min:10; --i:0;"><span class="scale-n">Sobrancelha</span><span class="scale-bar" aria-hidden="true"></span><span class="scale-t">10 min</span></li>
+          <li style="--min:30; --i:1;"><span class="scale-n">Barba na navalha</span><span class="scale-bar" aria-hidden="true"></span><span class="scale-t">30 min</span></li>
+          <li style="--min:35; --i:2;"><span class="scale-n">Corte</span><span class="scale-bar" aria-hidden="true"></span><span class="scale-t">35 min</span></li>
+          <li style="--min:40; --i:3;"><span class="scale-n">Tratamento capilar</span><span class="scale-bar" aria-hidden="true"></span><span class="scale-t">40 min</span></li>
+          <li style="--min:60; --i:4;"><span class="scale-n">Corte + barba</span><span class="scale-bar" aria-hidden="true"></span><span class="scale-t">60 min</span></li>
+          <li style="--min:90; --i:5;"><span class="scale-n">Pacote Ofício <small>corte, barba e tratamento na mesma cadeira</small></span><span class="scale-bar" aria-hidden="true"></span><span class="scale-t">90 min</span></li>
+        </ol>
+        <a class="btn btn-light scale-cta" href="#agendar">Marcar um desses</a>
+      </div>
+    </section>
+
+    <!-- BARBEIROS -->
+    <section class="sec" id="barbeiros">
+      <div class="wrap">
+        <div class="sec-head">
+          <h2 class="h h-lg rvl"><span class="ln"><span>Quem vai te atender</span></span></h2>
+          <p class="lede">Você escolhe com quem marca. Na próxima vez é o mesmo, a não ser que você queira trocar.</p>
+        </div>
+        <div class="grid4">
+          <article class="barber">
+            <figure class="rvi"><img src="assets/img/barbeiro-1-720.webp?v=3" srcset="assets/img/barbeiro-1-480.webp?v=3 480w, assets/img/barbeiro-1-720.webp?v=3 720w" sizes="(max-width: 560px) 92vw, (max-width: 940px) 46vw, 290px" width="720" height="926" alt="Wagner, barbeiro, diante da parede de tijolo" loading="lazy" decoding="async"></figure>
+            <h3 class="h" style="--d:.3s;">Wagner</h3>
+            <p class="barber-role">Navalha e barba, há 14 anos</p>
+            <p class="barber-bio">Aprendeu com o pai, numa barbearia de bairro que não existe mais.</p>
+          </article>
+          <article class="barber">
+            <figure class="rvi" style="--d:.1s;"><img src="assets/img/barbeiro-2-720.webp?v=3" srcset="assets/img/barbeiro-2-480.webp?v=3 480w, assets/img/barbeiro-2-720.webp?v=3 720w" sizes="(max-width: 560px) 92vw, (max-width: 940px) 46vw, 290px" width="720" height="926" alt="Diego, barbeiro, diante da parede de tijolo" loading="lazy" decoding="async"></figure>
+            <h3 class="h" style="--d:.4s;">Diego</h3>
+            <p class="barber-role">Corte clássico e degradê, há 9 anos</p>
+            <p class="barber-bio">É quem os outros barbeiros chamam quando têm dúvida no próprio corte.</p>
+          </article>
+          <article class="barber">
+            <figure class="rvi" style="--d:.2s;"><img src="assets/img/barbeiro-3-720.webp?v=3" srcset="assets/img/barbeiro-3-480.webp?v=3 480w, assets/img/barbeiro-3-720.webp?v=3 720w" sizes="(max-width: 560px) 92vw, (max-width: 940px) 46vw, 290px" width="720" height="926" alt="Thiago, barbeiro, diante da parede de tijolo" loading="lazy" decoding="async"></figure>
+            <h3 class="h" style="--d:.5s;">Thiago</h3>
+            <p class="barber-role">Tratamento capilar, há 6 anos</p>
+            <p class="barber-bio">Cuida de couro cabeludo, coisa que quase nenhuma barbearia de bairro oferece.</p>
+          </article>
+          <article class="barber">
+            <figure class="rvi" style="--d:.3s;"><img src="assets/img/barbeiro-4-720.webp?v=3" srcset="assets/img/barbeiro-4-480.webp?v=3 480w, assets/img/barbeiro-4-720.webp?v=3 720w" sizes="(max-width: 560px) 92vw, (max-width: 940px) 46vw, 290px" width="720" height="926" alt="Marcos, barbeiro, diante da parede de tijolo" loading="lazy" decoding="async"></figure>
+            <h3 class="h" style="--d:.6s;">Marcos</h3>
+            <p class="barber-role">Tesoura e cabelo comprido, há 11 anos</p>
+            <p class="barber-bio">Veio de um salão da Liberdade. Pega os cortes longos que os outros preferem não pegar.</p>
+          </article>
+        </div>
+
+        <!-- um depoimento só, preso a quem atendeu (depoimento de exemplo: é peça de conceito) -->
+        <figure class="quote">
+          <blockquote class="h">“Troquei de barbearia de rede pra cá. O Wagner lembra até do jeito que eu gosto da barba.”</blockquote>
+          <figcaption>Marcelo, cliente do Wagner desde 2022</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- PRODUTOS: faixa de foto em vez de mais um bloco foto-e-texto lado a lado -->
+    <section class="place place--band rvh" id="produtos">
+      <div class="hero-media">
+        <img class="hero-img" src="assets/img/produtos-1024.webp" srcset="assets/img/produtos-640.webp 640w, assets/img/produtos-1024.webp 1024w" sizes="100vw" width="1024" height="1024" alt="Frascos âmbar de tônico e lata de pomada numa prateleira de madeira" loading="lazy" decoding="async">
+      </div>
+      <div class="wrap hero-inner">
+        <h2 class="h h-lg rvl">
+          <span class="ln"><span>Leva pra casa</span></span>
+          <span class="ln" style="--i:1;"><span>o que a gente usa.</span></span>
+        </h2>
+        <p class="lede">Os produtos da bancada são os mesmos que a gente vende. Se funcionou no seu cabelo aqui, funciona em casa.</p>
+        <div class="actions">
+          <a class="btn btn-light" href="https://wa.me/5500000000000?text=Ol%C3%A1!%20Queria%20saber%20quais%20produtos%20voc%C3%AAs%20t%C3%AAm." target="_blank" rel="noopener">Ver o que temos</a>
+          <a class="tlink" href="#agendar">Pedir junto com o horário</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- DÚVIDAS: o que trava a decisão antes de marcar -->
+    <section class="sec faq-sec" id="duvidas">
+      <div class="wrap split split--top">
+        <div>
+          <h2 class="h h-lg rvl">
+            <span class="ln"><span>Antes</span></span>
+            <span class="ln" style="--i:1;"><span>de marcar.</span></span>
+          </h2>
+          <p class="lede">Se a sua dúvida não estiver aqui, pergunta no WhatsApp. Quem responde é alguém daqui de dentro.</p>
+          <a class="tlink" href="https://wa.me/5500000000000" target="_blank" rel="noopener">Perguntar no WhatsApp</a>
+        </div>
+        <div class="faq">
+          <details>
+            <summary>Atende sem hora marcada?</summary>
+            <p class="ans">Não. Trabalhamos só com horário marcado pra ninguém esperar em pé. Se quiser tentar um encaixe no mesmo dia, chama no WhatsApp que a gente vê o que dá.</p>
+          </details>
+          <details>
+            <summary>Quanto custa?</summary>
+            <p class="ans">A gente passa os valores na hora de marcar, pelo WhatsApp, junto com o horário e o barbeiro. Varia conforme o serviço, então preferimos dizer o valor certo do seu caso.</p>
+          </details>
+          <details>
+            <summary>Quais formas de pagamento?</summary>
+            <p class="ans">Pix, débito, crédito e dinheiro.</p>
+          </details>
+          <details>
+            <summary>E se eu atrasar ou precisar desmarcar?</summary>
+            <p class="ans">Avisa pelo WhatsApp. Até 15 minutos de atraso a gente segura o horário; passou disso, remarcamos pro próximo horário livre, sem custo.</p>
+          </details>
+          <details>
+            <summary>Tem onde estacionar?</summary>
+            <p class="ans">Não temos estacionamento próprio. Na rua de trás costuma ter vaga, e o metrô Fradique Coutinho fica a cinco minutos a pé.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- AGENDAR -->
+    <section class="sec booking" id="agendar">
+      <div class="wrap split split--top">
+        <div>
+          <h2 class="h h-lg rvl">
+            <span class="ln"><span>Marca em</span></span>
+            <span class="ln" style="--i:1;"><span>trinta segundos.</span></span>
+          </h2>
+          <p class="lede">Preenche os campos e a mensagem já vai pronta pro nosso WhatsApp, sem você digitar nada.</p>
+          <p class="booking-note">A gente responde confirmando o horário. Se preferir ligar, é <strong>(11) 0000-0000</strong>.</p>
+        </div>
+
+        <form class="booking-form" id="agendar-form" data-whats="5500000000000" novalidate>
+          <div class="form-row">
+            <div class="field">
+              <label for="f-nome">Seu nome</label>
+              <input id="f-nome" name="nome" type="text" autocomplete="given-name" placeholder="Como te chamamos?">
+            </div>
+            <div class="field">
+              <label for="f-barbeiro">Com quem</label>
+              <select id="f-barbeiro" name="barbeiro">
+                <option value="">Tanto faz, quem estiver livre</option>
+                <option>Wagner</option>
+                <option>Diego</option>
+                <option>Thiago</option>
+                <option>Marcos</option>
+              </select>
+            </div>
+          </div>
+          <div class="field">
+            <label for="f-servico">O que você quer fazer</label>
+            <select id="f-servico" name="servico">
+              <option>Corte</option>
+              <option>Barba na navalha</option>
+              <option>Corte + barba</option>
+              <option>Sobrancelha</option>
+              <option>Tratamento capilar</option>
+              <option>Pacote Ofício</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="f-quando">Quando fica bom pra você</label>
+            <select id="f-quando" name="quando">
+              <option>Hoje, se tiver vaga</option>
+              <option>Amanhã</option>
+              <option>Ainda essa semana</option>
+              <option>No fim de semana</option>
+              <option>Me diz os horários livres</option>
+            </select>
+          </div>
+          <button class="btn btn-dark booking-submit" type="submit">Abrir no WhatsApp</button>
+          <p class="booking-hint">Abre a conversa com a mensagem já escrita. Você só confere e envia.</p>
+        </form>
+      </div>
+    </section>
+
+    <!-- ONDE ESTAMOS -->
+    <section class="place rvh" id="onde">
+      <div class="hero-media">
+        <img class="hero-img" src="assets/img/fachada-1344.webp" srcset="assets/img/fachada-800.webp 800w, assets/img/fachada-1344.webp 1344w" sizes="100vw" width="1344" height="768" alt="Fachada da OFÍCIO ao anoitecer, com barber pole aceso ao lado da porta" loading="lazy" decoding="async">
+      </div>
+      <div class="wrap hero-inner">
+        <h2 class="h h-lg rvl">
+          <span class="ln"><span>Rua Fradique</span></span>
+          <span class="ln" style="--i:1;"><span>Coutinho, 000</span></span>
+        </h2>
+        <p class="lede">Pinheiros, São Paulo. Cinco minutos a pé do metrô Fradique Coutinho. Tem onde parar na rua de trás.</p>
+        <div class="actions">
+          <a class="btn btn-light" href="https://www.google.com/maps/search/?api=1&amp;query=Rua%20Fradique%20Coutinho%2C%20Pinheiros%2C%20S%C3%A3o%20Paulo" target="_blank" rel="noopener">Ver no mapa</a>
+          <a class="tlink" href="https://wa.me/5500000000000" target="_blank" rel="noopener">Chamar no WhatsApp</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer dark">
+    <div class="wrap">
+      <div class="footer-grid">
+        <div>
+          <p class="wordmark footer-mark">OFÍCIO</p>
+          <p class="footer-about">Barbearia de bairro em Pinheiros. Quatro cadeiras, quatro barbeiros e nenhuma vontade de virar rede.</p>
+        </div>
+        <nav aria-label="Rodapé">
+          <p class="footer-lbl">No site</p>
+          <a href="#a-casa">A casa</a>
+          <a href="#servicos">Serviços</a>
+          <a href="#barbeiros">Barbeiros</a>
+          <a href="#agendar">Agendar</a>
+        </nav>
+        <div>
+          <p class="footer-lbl">Falar com a gente</p>
+          <a href="https://wa.me/5500000000000" target="_blank" rel="noopener">WhatsApp</a>
+          <a href="#" rel="noopener">@oficiobarbearia</a>
+          <p class="footer-muted">(11) 0000-0000</p>
+        </div>
+      </div>
+      <div class="footer-legal">
+        <span>© <span data-year>2026</span> OFÍCIO Barbearia</span>
+        <span>Ofício, não rede.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/vendor/lenis.min.js" defer></script>
+  <script src="assets/js/main.js?v=3" defer></script>
+</body>
+</html>

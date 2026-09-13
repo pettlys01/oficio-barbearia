@@ -1,0 +1,3 @@
+# PNGs brutos do ComfyUI: pesados e não usados pelo site (só o .webp convertido é usado).
+# Regeráveis via tools/fotos-salao.mjs, tools/fotos-barbeiros.mjs + tools/converter-*.py.
+assets/img/src/

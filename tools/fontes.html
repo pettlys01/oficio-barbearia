@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>OFÍCIO — comparação de fontes</title>
+<!-- só pra comparar; a escolhida vai ser baixada e servida local no site -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@500;600;700&family=Familjen+Grotesk:wght@500;600;700&family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700&family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Instrument+Serif&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; }
+  body { background: #F4F2ED; color: #14100D; font: 400 15px/1.6 'Montserrat', sans-serif; padding: 40px 24px 80px; }
+  .top { max-width: 1200px; margin: 0 auto 32px; color: #6B6259; }
+  .opt { max-width: 1200px; margin: 0 auto 28px; display: grid; grid-template-columns: 1fr 1fr; border: 1px solid rgba(20,16,13,.12); }
+  .opt > div { padding: 36px 32px; }
+  .dk { background: #14100D; color: #F4F2ED; }
+  .tag { font-size: 13px; color: #6B6259; margin-bottom: 18px; }
+  .dk .tag { color: #8E857B; }
+  .h1 { font-size: clamp(34px, 4.6vw, 56px); line-height: 1.02; letter-spacing: -.02em; }
+  .p { margin-top: 16px; max-width: 42ch; font-size: 15.5px; }
+  .dk .p { color: #CFC6BC; }
+  .info { margin-top: 26px; display: flex; gap: 32px; flex-wrap: wrap; font-size: 14px; }
+  .info b { display: block; font-weight: 500; color: #8E857B; font-size: 13px; }
+  @media (max-width: 760px) { .opt { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<p class="top">Título na fonte candidata · texto corrido na mesma família (esquerda) e em Montserrat (direita, fundo escuro).</p>
+
+<section class="opt" style="--f:'Schibsted Grotesk'">
+  <div><p class="tag">1 · Schibsted Grotesk — grotesca de jornal</p><h2 class="h1" style="font-family:var(--f);font-weight:700">Barbeiro é ofício, não linha de produção.</h2><p class="p" style="font-family:var(--f)">São quatro cadeiras, três barbeiros fixos e uma regra: o corte leva o tempo que precisa levar.</p></div>
+  <div class="dk"><p class="tag">mesma, sobre escuro</p><h2 class="h1" style="font-family:var(--f);font-weight:600">Um dia no salão</h2><p class="p">Do café antes de abrir ao cabelo no chão no fim do dia.</p><div class="info"><span><b>Horário</b>Seg a sex, 10h às 20h</span><span><b>Endereço</b>R. Fradique Coutinho, 000</span></div></div>
+</section>
+
+<section class="opt" style="--f:'Familjen Grotesk'">
+  <div><p class="tag">2 · Familjen Grotesk — grotesca com traço desenhado à mão</p><h2 class="h1" style="font-family:var(--f);font-weight:700">Barbeiro é ofício, não linha de produção.</h2><p class="p" style="font-family:var(--f)">São quatro cadeiras, três barbeiros fixos e uma regra: o corte leva o tempo que precisa levar.</p></div>
+  <div class="dk"><p class="tag">mesma, sobre escuro</p><h2 class="h1" style="font-family:var(--f);font-weight:600">Um dia no salão</h2><p class="p">Do café antes de abrir ao cabelo no chão no fim do dia.</p><div class="info"><span><b>Horário</b>Seg a sex, 10h às 20h</span><span><b>Endereço</b>R. Fradique Coutinho, 000</span></div></div>
+</section>
+
+<section class="opt" style="--f:'Bricolage Grotesque'">
+  <div><p class="tag">3 · Bricolage Grotesque — grotesca com personalidade (tinta de gráfica antiga)</p><h2 class="h1" style="font-family:var(--f);font-weight:700">Barbeiro é ofício, não linha de produção.</h2><p class="p" style="font-family:var(--f)">São quatro cadeiras, três barbeiros fixos e uma regra: o corte leva o tempo que precisa levar.</p></div>
+  <div class="dk"><p class="tag">mesma, sobre escuro</p><h2 class="h1" style="font-family:var(--f);font-weight:600">Um dia no salão</h2><p class="p">Do café antes de abrir ao cabelo no chão no fim do dia.</p><div class="info"><span><b>Horário</b>Seg a sex, 10h às 20h</span><span><b>Endereço</b>R. Fradique Coutinho, 000</span></div></div>
+</section>
+
+<section class="opt" style="--f:'Fraunces'">
+  <div><p class="tag">4 · Fraunces — serifa "antiga" quente, bem diferente da Lora</p><h2 class="h1" style="font-family:var(--f);font-weight:600">Barbeiro é ofício, não linha de produção.</h2><p class="p">São quatro cadeiras, três barbeiros fixos e uma regra: o corte leva o tempo que precisa levar.</p></div>
+  <div class="dk"><p class="tag">mesma, sobre escuro</p><h2 class="h1" style="font-family:var(--f);font-weight:500">Um dia no salão</h2><p class="p">Do café antes de abrir ao cabelo no chão no fim do dia.</p><div class="info"><span><b>Horário</b>Seg a sex, 10h às 20h</span><span><b>Endereço</b>R. Fradique Coutinho, 000</span></div></div>
+</section>
+
+<section class="opt" style="--f:'Instrument Serif'">
+  <div><p class="tag">5 · Instrument Serif — serifa editorial fina, título grande</p><h2 class="h1" style="font-family:var(--f);font-weight:400;font-size:clamp(40px,5.4vw,66px);letter-spacing:-.01em">Barbeiro é ofício, não linha de produção.</h2><p class="p">São quatro cadeiras, três barbeiros fixos e uma regra: o corte leva o tempo que precisa levar.</p></div>
+  <div class="dk"><p class="tag">mesma, sobre escuro</p><h2 class="h1" style="font-family:var(--f);font-weight:400;font-size:clamp(40px,5.4vw,66px)">Um dia no salão</h2><p class="p">Do café antes de abrir ao cabelo no chão no fim do dia.</p><div class="info"><span><b>Horário</b>Seg a sex, 10h às 20h</span><span><b>Endereço</b>R. Fradique Coutinho, 000</span></div></div>
+</section>
+
+<section class="opt">
+  <div><p class="tag">Atual · Montserrat 700 (referência)</p><h2 class="h1" style="font-weight:700">Barbeiro é ofício, não linha de produção.</h2><p class="p">São quatro cadeiras, três barbeiros fixos e uma regra: o corte leva o tempo que precisa levar.</p></div>
+  <div class="dk"><p class="tag">mesma, sobre escuro</p><h2 class="h1" style="font-weight:700">Um dia no salão</h2><p class="p">Do café antes de abrir ao cabelo no chão no fim do dia.</p></div>
+</section>
+</body>
+</html>
